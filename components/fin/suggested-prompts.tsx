@@ -1,10 +1,10 @@
 'use client'
 
 const prompts = [
-  'Where should I put my first $500?',
+  "Let's do the 15 questions!",
+  'What should I focus on first?',
   "Explain credit scores like I'm 5",
   'Help me make a budget',
-  'Should I pay off loans or invest first?',
 ]
 
 interface SuggestedPromptsProps {

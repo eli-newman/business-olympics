@@ -1,21 +1,23 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import { BottomNav } from '@/components/bottom-nav'
 import './globals.css'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const jetbrains = JetBrains_Mono({
+  variable: '--font-mono',
   subsets: ['latin'],
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
   title: 'Fin — Your Financial Advisor',
   description: 'AI-powered financial guidance for Gen Z',
+  themeColor: '#000000',
 }
 
 export default function RootLayout({
@@ -24,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${inter.variable} ${jetbrains.variable} font-sans antialiased bg-black text-white`}
       >
         <main className="pb-16">{children}</main>
         <BottomNav />

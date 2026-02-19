@@ -89,11 +89,10 @@ export default function FinPage() {
       {/* Header */}
       <div className="fixed top-0 left-0 right-0 z-10 bg-black border-b border-zinc-900 px-4 py-3">
         <h1 className="text-xl font-bold text-electric">Fin</h1>
-        <p className="text-xs text-zinc-500">AI Financial Advisor</p>
       </div>
 
       {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 pt-20 pb-32 space-y-4">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 pt-20 pb-32 space-y-4" aria-live="polite" aria-label="Chat messages">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
             <div>
@@ -101,7 +100,7 @@ export default function FinPage() {
                 Hey{profile?.name ? `, ${profile.name}` : ''}! I&apos;m Fin.
               </h2>
               <p className="text-sm text-zinc-400">
-                Your AI financial advisor. Ask me anything about money.
+                Let's figure out your money situation together.
               </p>
             </div>
             <SuggestedPrompts onSelect={handlePromptSelect} />
@@ -122,15 +121,18 @@ export default function FinPage() {
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Ask Fin anything..."
-            className="bg-zinc-900 border border-zinc-700 text-white rounded-full px-4 py-3 flex-1 outline-none focus:border-electric placeholder:text-zinc-500 text-sm"
+            placeholder="Ask Fin anything…"
+            name="message"
+            autoComplete="off"
+            className="bg-zinc-900 border border-zinc-700 text-white rounded-full px-4 py-3 flex-1 focus-visible:outline-none focus-visible:border-electric placeholder:text-zinc-500 text-sm"
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="bg-electric text-black rounded-full p-3 disabled:opacity-50 transition-opacity"
+            aria-label="Send message"
+            className="bg-electric text-black rounded-full p-3 disabled:opacity-50 transition-opacity hover:bg-electric/90 focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
-            <Send className="w-5 h-5" />
+            <Send className="w-5 h-5" aria-hidden="true" />
           </button>
         </form>
       </div>

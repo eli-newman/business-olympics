@@ -73,11 +73,13 @@ export function OnboardingFlow() {
           >
             <input
               type="text"
+              name="name"
+              autoComplete="given-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Type your name..."
+              placeholder="Type your name…"
               autoFocus
-              className="bg-transparent border-b-2 border-electric text-white text-xl w-full py-2 outline-none placeholder:text-zinc-600"
+              className="bg-transparent border-b-2 border-electric text-white text-xl w-full py-2 focus-visible:outline-none placeholder:text-zinc-600"
               onKeyDown={(e) => e.key === 'Enter' && canProceed && handleNext()}
             />
           </OnboardingCard>
@@ -95,11 +97,14 @@ export function OnboardingFlow() {
           >
             <input
               type="number"
+              name="age"
+              autoComplete="off"
+              inputMode="numeric"
               value={age}
               onChange={(e) => setAge(e.target.value)}
               placeholder="e.g. 21"
               autoFocus
-              className="bg-transparent border-b-2 border-electric text-white text-xl w-full py-2 outline-none placeholder:text-zinc-600"
+              className="bg-transparent border-b-2 border-electric text-white text-xl w-full py-2 focus-visible:outline-none placeholder:text-zinc-600"
               onKeyDown={(e) => e.key === 'Enter' && canProceed && handleNext()}
             />
           </OnboardingCard>

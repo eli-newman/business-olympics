@@ -23,12 +23,12 @@ export function BottomNav() {
             <Link
               key={tab.href}
               href={tab.href}
-              className={`flex flex-col items-center gap-0.5 ${
+              className={`flex flex-col items-center gap-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:text-white ${
                 isActive ? 'text-electric' : 'text-zinc-500'
               }`}
             >
-              <Icon className="w-5 h-5" />
-              <span className="text-xs">{tab.label}</span>
+              <Icon className="w-5 h-5" aria-hidden="true" />
+              <span className="text-xs font-medium">{tab.label}</span>
             </Link>
           )
         })}

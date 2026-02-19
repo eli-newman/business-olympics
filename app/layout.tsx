@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { BottomNav } from '@/components/bottom-nav'
 import './globals.css'
@@ -17,6 +17,9 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Fin — Your Financial Advisor',
   description: 'AI-powered financial guidance for Gen Z',
+}
+
+export const viewport: Viewport = {
   themeColor: '#000000',
 }
 
